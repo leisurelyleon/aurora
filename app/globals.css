@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Theme tokens are RGB triplets (not hex) so Tailwind's <alpha-value> syntax
+ * works: rgb(var(--accent) / 0.5) etc. Light is the :root default; .dark
+ * overrides. The font variables point at the families loaded in layout.tsx.
+ */
+:root {
+  --background: 247 248 252;
+  --foreground: 14 17 30;
+  --accent: 122 77 255;
+  --muted: 96 106 128;
+}
+
+.dark {
+  --background: 7 8 16;
+  --foreground: 234 238 248;
+  --accent: 26 224 168;
+  --muted: 138 148 168;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Offset in-page anchors for the fixed navbar. */
+  section,
+  footer {
+    scroll-margin-top: 80px;
+  }
+}
+
+/* Animated gradient shown when WebGL2 is unavailable or the context is lost. */
+.aurora-fallback {
+  background: linear-gradient(
+    130deg,
+    #07080f 0%,
+    #11d6c2 22%,
+    #7a4dff 48%,
+    #f24d94 70%,
+    #1ae0a8 88%,
+    #07080f 100%
+  );
+  background-size: 320% 320%;
+  animation: aurora-shift 20s ease infinite;
+}
+
+@keyframes aurora-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .aurora-fallback {
+    animation: none;
+  }
+}
