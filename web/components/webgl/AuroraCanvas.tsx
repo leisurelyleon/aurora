@@ -36,7 +36,9 @@ export function AuroraCanvas() {
 
     let renderer: AuroraRenderer;
     try {
-      renderer = new AuroraRenderer(canvas, { theme: theme === "dark" ? 0 : 1 });
+      renderer = new AuroraRenderer(canvas, {
+        theme: theme === "dark" ? 0 : 1,
+      });
     } catch {
       setFallback(true);
       return;
@@ -121,7 +123,9 @@ export function AuroraCanvas() {
   }, [theme, reducedMotion]);
 
   if (fallback) {
-    return <div className="aurora-fallback absolute inset-0" aria-hidden="true" />;
+    return (
+      <div className="aurora-fallback absolute inset-0" aria-hidden="true" />
+    );
   }
 
   return (

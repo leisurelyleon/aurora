@@ -1,7 +1,12 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  type MotionValue,
+} from "framer-motion";
 import { Reveal } from "@/components/motion/Reveal";
 
 interface Layer {

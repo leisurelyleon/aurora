@@ -3,7 +3,10 @@ import { Reveal } from "@/components/motion/Reveal";
 const links = [
   { label: "GitHub", href: "https://github.com/leisurelyleon/aurora" },
   { label: "Vercel", href: "https://vercel.com" },
-  { label: "WebGL2 spec", href: "https://registry.khronos.org/webgl/specs/latest/2.0/" },
+  {
+    label: "WebGL2 spec",
+    href: "https://registry.khronos.org/webgl/specs/latest/2.0/",
+  },
 ];
 
 export function Footer() {
@@ -23,7 +26,7 @@ export function Footer() {
 
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
           {links.map((link) => (
-            
+            <a
               key={link.label}
               href={link.href}
               target="_blank"
